@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    class Form {
+    class Form extends Component {
 
     }
 

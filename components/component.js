@@ -12,10 +12,18 @@
         }
 
         render() {
-            this.el.innerHTML = TemplateEngine.render(this._template, this.data);
+            this.el.innerHTML = TemplateEngine.renderView(this._template, this.data);
         }
 
-        trigger(type, options) {
+        on(type, callback) {
+            this.el.addEventListener(type, callback);
+        }
+
+        _initEvent(type, callback) {
+            this.el.addEventListener(type, callback.bind(this));
+        }
+
+        _trigger(type, options) {
             let event = new CustomEvent(type, {
                 bubbles: true,
                 detail: options

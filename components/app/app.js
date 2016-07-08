@@ -11,14 +11,18 @@
             items: [
                 {
                     anchor: 'mail.ru',
-                    href: 'http://mail.ru',
+                    href: 'http://mail.ru'
                 },
                 {
                     anchor: 'yandex.ru',
                     href: 'http://yandex.ru'
-                },
+                }
             ]
-        },
+        }
+    });
+
+    menu.on('item.remove', function(event) {
+       menu.removeItem(event.detail);
     });
 
     window.menu = menu;
