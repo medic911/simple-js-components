@@ -1,0 +1,13 @@
+.container {
+    width: 600px;
+    margin: 100px auto;
+    background: #F5F2F0;
+    border: #9B999B 1px solid;
+    border-radius: 3px;
+}
+
+.block {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px 0px;
+}

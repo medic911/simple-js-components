@@ -1,0 +1,9 @@
+.b-menu__title {
+    font-size: 18px;
+}
+
+.b-menu-list {
+    list-style: none;
+    margin: 10px 0px;
+    padding: 0px;
+}
