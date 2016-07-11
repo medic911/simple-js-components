@@ -104,5 +104,7 @@
         }
     }
 
+    // export
     window.XhrClient = XhrClient;
+
 })(window);
