@@ -4,7 +4,6 @@
     // import
     let Menu        = window.Menu;
     let Form        = window.Form;
-    let XhrClient   = window.XhrClient;
 
     // Компонент меню
     let menu = new Menu({
@@ -42,13 +41,7 @@
     });
 
     // XMLHttpRequest
-    let xhrClient = new XhrClient();
-    xhrClient.get('http://127.0.0.1:8080/server/data.json')
-             .onDone(function(response) {
-                 if(response.status == 200) {
-                     menu.updateItems(response.data);
-                 }
-             });
+    menu.loadRemoteItems('http://127.0.0.1:8080/server/data.json');
 
     // export
     window.menu = menu;

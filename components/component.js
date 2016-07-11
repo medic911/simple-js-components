@@ -2,7 +2,7 @@
     "use strict";
 
     // import
-    let TemplateEngine = window.TemplateEngine;
+    let TemplateEngine  = window.TemplateEngine;
 
     /**
      * @class Component

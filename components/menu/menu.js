@@ -3,6 +3,7 @@
 
     // import
     let Component = window.Component;
+    let XhrClient = window.XhrClient;
 
     /**
      * @class Menu
@@ -52,6 +53,23 @@
         updateItems(items) {
             this.data.items = items;
             this.render();
+        }
+
+        /**
+        * Загрузка с сервера
+        * 
+        * @param {string} url - url
+        */
+        loadRemoteItems(url) {
+            let xhrClient = new XhrClient();
+
+            let that = this;
+            xhrClient.get(url)
+                     .onDone(function(response) {
+                         if(response.status == 200) {
+                             that.updateItems(response.data);
+                         }
+                     });
         }
 
         /**
