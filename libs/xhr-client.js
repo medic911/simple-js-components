@@ -76,11 +76,7 @@
             this.xhr = new XMLHttpRequest();
             this.xhr.open(method, url, true);
             this.xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-
-            if(method === 'POST') {
-                this.xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-            }
-
+            this.xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             this.xhr.send(body);
 
             return this;
