@@ -7,3 +7,19 @@
     margin: 10px 0px;
     padding: 0px;
 }
+
+.b-menu-list-item {
+    pading-top: 8px;
+    width: 50%;
+}
+
+.b-menu-list-item__link,  .b-menu-list-item__link:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.b-menu-list-item .close {
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+}

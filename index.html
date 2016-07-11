@@ -34,9 +34,15 @@
 
     <script type="text/x-tmpl" id="form">
         <form id="add-form" method="POST" >
-            <input type="text" name="anchor" required >
-            <input type="url" name="href" required >
-            <input type="submit" name="Добавить"  >
+            <div class="b-form-field" >
+                <label class="b-form-field__label" >Название</label><br>
+                <input type="text" name="anchor" required >
+            </div>
+            <div class="b-form-field" >
+                <label class="b-form-field__label" >Ссылка</label><br>
+                <input type="url" name="href" required >
+            </div>
+            <input type="submit" value="Добавить"  >
         </form>
     </script>
     <!--End templates-->
