@@ -1,21 +1,39 @@
 (function(){
     "use strict";
 
+    /**
+     * Компонент форма
+     */
     class Form extends Component {
 
+        /**
+         * @inheritDoc
+         */
         constructor(options) {
             super(options);
-            this._initEvent('submit', this._onSubmit);
+            this.initEvent('submit', this._onSubmit);
         }
 
-        getField (name) {
+        /**
+         * Элемент DOM по name
+         *
+         * @param name
+         * @returns {Element}
+         */
+        getField(name) {
             return this.el.querySelector(`[name="${name}"]`);
         }
 
+        /**
+         * Регистрация события "submit формы"
+         *
+         * @param event
+         * @private
+         */
         _onSubmit(event) {
             event.preventDefault();
 
-            this._trigger('form.submit', {
+            this.trigger('form.submit', {
                 anchor: this.getField('anchor').value,
                 href: this.getField('href').value
             });

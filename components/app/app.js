@@ -1,9 +1,11 @@
 (function(){
     "use strict";
 
-    let Menu = window.Menu;
-    let Form = window.Form;
+    let Menu        = window.Menu;
+    let Form        = window.Form;
+    let XhrClient   = window.XhrClient;
 
+    // Компонент меню
     let menu = new Menu({
         el: document.querySelector('.b-menu'),
         template: '#menu',
@@ -22,24 +24,30 @@
         }
     });
 
+    // Компонент форма
     let form = new Form({
         el: document.querySelector('.b-form'),
         template: '#form'
     });
 
+    // Удаление элемента из меню
     menu.on('item.remove', function(event) {
        menu.removeItem(event.detail);
     });
 
+    // Submit формы
     form.on('form.submit', function(event) {
         menu.addItem(event.detail.anchor, event.detail.href);
     });
 
+    // XMLHttpRequest
     let xhrClient = new XhrClient();
     xhrClient.create('GET', 'http://127.0.0.1:8080/server/data.json')
              .send()
              .onDone(function(response) {
-                 menu.updateItems(response.data);
+                 if(response.status == 200) {
+                     menu.updateItems(response.data);
+                 }
              });
 
     window.menu = menu;

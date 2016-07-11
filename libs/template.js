@@ -1,8 +1,19 @@
 (function() {
     "use strict";
 
+    /**
+     *  Класс TemplateEngine. Рендер шаблонов.
+     */
     class TemplateEngine {
 
+        /**
+         * Создает html-view для шаблона
+         *
+         * @param html          - шаблон
+         * @param options       - параметры
+         *
+         * @returns {string}    - html
+         */
         static renderView(html, options) {
             var re = /<%([^%>]+)?%>/g, reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g, code = 'var r=[];\n', cursor = 0, match;
             var add = function(line, js) {

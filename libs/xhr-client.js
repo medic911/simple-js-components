@@ -1,8 +1,19 @@
 (function(){
     "use strict";
 
+    /**
+     * Класс для отправки XMLHttpRequest запросов
+     */
     class XhrClient {
 
+        /**
+         * Создание XMLHttpRequest
+         *
+         * @param method    - метод (GET|POST...)
+         * @param url       - url
+         *
+         * @returns {XhrClient}
+         */
         create(method, url) {
             this.xhr = new XMLHttpRequest();
             this.xhr.open(method, url, true);
@@ -14,12 +25,27 @@
             return this;
         }
 
+        /**
+         * Отправка запроса
+         *
+         * @param body - тело запроса (для POST)
+         *
+         * @returns {XhrClient}
+         */
         send(body = '') {
             this.xhr.send(body);
 
             return this;
         }
 
+        /**
+         * Обработчик ответа
+         *
+         * @param callback      - функция-обработчик
+         * @param responseType  - content-type ответа сервера (по умолчанию json)
+         *
+         * @returns {XhrClient}
+         */
         onDone(callback, responseType = 'json') {
             let that = this;
             this.xhr.onreadystatechange = function() {
