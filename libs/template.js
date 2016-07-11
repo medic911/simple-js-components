@@ -2,15 +2,16 @@
     "use strict";
 
     /**
-     *  Класс TemplateEngine. Рендер шаблонов.
+     * @class TemplateEngine
+     * Класс TemplateEngine. Рендер шаблонов.
      */
     class TemplateEngine {
 
         /**
          * Создает html-view для шаблона
          *
-         * @param html          - шаблон
-         * @param options       - параметры
+         * @param {string} html          - шаблон
+         * @param {Object} options       - параметры
          *
          * @returns {string}    - html
          */

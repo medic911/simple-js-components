@@ -2,47 +2,43 @@
     "use strict";
 
     /**
+     * @class XhrClient
      * Класс для отправки XMLHttpRequest запросов
      */
     class XhrClient {
 
         /**
-         * Создание XMLHttpRequest
+         * POST запрос
          *
-         * @param method    - метод (GET|POST...)
-         * @param url       - url
+         * @param {string} url       - url
+         * @param {Object} params    - параметры (json)
          *
          * @returns {XhrClient}
          */
-        create(method, url) {
-            this.xhr = new XMLHttpRequest();
-            this.xhr.open(method, url, true);
-
-            if(method === 'POST') {
-                this.xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-            }
-
-            return this;
+        post(url, params = {}) {
+            return this._sendRequest('POST', url, JSON.stringify(params));
         }
 
         /**
-         * Отправка запроса
+         * GET запрос
          *
-         * @param body - тело запроса (для POST)
+         * @param {string} url       - url
+         * @param {Object} params    - параметры (json)
          *
          * @returns {XhrClient}
          */
-        send(body = '') {
-            this.xhr.send(body);
+        get(url, params = {}) {
+            params = this._getUrlEncodedParams(params);
+            url += params ? '?'+params : '';
 
-            return this;
+            return this._sendRequest('GET', url);
         }
 
         /**
          * Обработчик ответа
          *
-         * @param callback      - функция-обработчик
-         * @param responseType  - content-type ответа сервера (по умолчанию json)
+         * @param {Function} callback       - функция-обработчик
+         * @param {string} responseType     - content-type ответа сервера (по умолчанию json)
          *
          * @returns {XhrClient}
          */
@@ -63,6 +59,48 @@
             };
 
             return this;
+        }
+
+        /**
+         * Создание XMLHttpRequest и отправка запроса
+         *
+         * @param {string} method    - метод (GET|POST)
+         * @param {string} url       - url
+         * @param {string} body      - тело запроса
+         *
+         * @returns {XhrClient}
+         * @private
+         */
+        _sendRequest(method, url, body = '') {
+
+            this.xhr = new XMLHttpRequest();
+            this.xhr.open(method, url, true);
+            this.xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+            if(method === 'POST') {
+                this.xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            }
+
+            this.xhr.send(body);
+
+            return this;
+        }
+
+        /**
+         * Возвращает url encoded строку
+         *
+         * @param {Object} params - параметры
+         *
+         * @returns {string}
+         * @private
+         */
+        _getUrlEncodedParams(params) {
+            let res = '';
+            for (let key in params) {
+                res += `${key}=`+encodeURIComponent(params[key])+'&';
+            }
+
+            return res.slice(0, res.length - 1);
         }
     }
 

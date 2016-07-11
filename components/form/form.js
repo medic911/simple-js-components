@@ -1,7 +1,11 @@
 (function(){
     "use strict";
 
+    // import
+    let Component = window.Component;
+
     /**
+     * @class Form
      * Компонент форма
      */
     class Form extends Component {
@@ -17,8 +21,9 @@
         /**
          * Элемент DOM по name
          *
-         * @param name
-         * @returns {Element}
+         * @param {string} name - имя поля
+         *
+         * @returns {Object}
          */
         getField(name) {
             return this.el.querySelector(`[name="${name}"]`);
@@ -27,7 +32,7 @@
         /**
          * Регистрация события "submit формы"
          *
-         * @param event
+         * @param {Object} event
          * @private
          */
         _onSubmit(event) {
@@ -40,5 +45,7 @@
         }
     }
 
+    // export
     window.Form = Form;
+
 })(window);

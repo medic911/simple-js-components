@@ -1,7 +1,11 @@
 (function(){
     "use strict";
 
+    // import
+    let TemplateEngine = window.TemplateEngine;
+
     /**
+     * @class Component
      * Базовый класс компонента
      */
     class Component {
@@ -9,7 +13,7 @@
         /**
          * Constructor
          *
-         * @param options - входные параметры
+         * @param {Object} options - входные параметры
          */
         constructor(options) {
             this.el         = options.el;
@@ -29,8 +33,8 @@
         /**
          * Добавление обработчика для события
          *
-         * @param type      - название события
-         * @param callback  - функция-обработчик
+         * @param {string} type         - название события
+         * @param {Function} callback   - функция-обработчик
          */
         on(type, callback) {
             this.el.addEventListener(type, callback);
@@ -39,8 +43,8 @@
         /**
          * Инициализация события
          *
-         * @param type      - название события
-         * @param callback  - функция-обработчик
+         * @param {string} type         - название события
+         * @param {Function} callback   - функция-обработчик
          */
         initEvent(type, callback) {
             this.el.addEventListener(type, callback.bind(this));
@@ -49,8 +53,8 @@
         /**
          * Регистрация кастомного события
          *
-         * @param type      - название события
-         * @param options   - параметры события
+         * @param {string} type      - название события
+         * @param {Object} options   - параметры события
          */
         trigger(type, options) {
             let event = new CustomEvent(type, {
@@ -62,5 +66,7 @@
         }
     }
 
+    // export
     window.Component = Component;
+
 })(window);

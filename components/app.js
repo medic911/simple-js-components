@@ -1,6 +1,7 @@
 (function(){
     "use strict";
 
+    // import
     let Menu        = window.Menu;
     let Form        = window.Form;
     let XhrClient   = window.XhrClient;
@@ -42,13 +43,15 @@
 
     // XMLHttpRequest
     let xhrClient = new XhrClient();
-    xhrClient.create('GET', 'http://127.0.0.1:8080/server/data.json')
-             .send()
+    xhrClient.get('http://127.0.0.1:8080/server/data.json')
              .onDone(function(response) {
                  if(response.status == 200) {
                      menu.updateItems(response.data);
                  }
              });
 
+    // export
     window.menu = menu;
+    window.form = form;
+
 })(window);

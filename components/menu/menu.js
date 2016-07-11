@@ -1,7 +1,11 @@
 (function(){
     "use strict";
 
+    // import
+    let Component = window.Component;
+
     /**
+     * @class Menu
      * Компонент меню
      */
     class Menu extends Component {
@@ -15,9 +19,9 @@
         }
 
         /**
-         * Удаление элемента
+         * Удаление пункта меню
          *
-         * @param removedItem - элемент для удаления
+         * @param {Object} removedItem - элемент для удаления
          */
         removeItem(removedItem) {
             this.data.items = this.data.items.filter((item, index) => {
@@ -27,10 +31,10 @@
         }
 
         /**
-         * Добавление элемента
+         * Добавление пункта меню
          *
-         * @param anchor    - название ссылки
-         * @param href      - адресс ссылки
+         * @param {string} anchor    - название
+         * @param {string} href      - адрес
          */
         addItem(anchor, href) {
             this.data.items.push({
@@ -41,9 +45,9 @@
         }
 
         /**
-         * Обновление элементов
+         * Обновление пунктов меню
          *
-         * @param items - список элементов
+         * @param {Object} items - список элементов
          */
         updateItems(items) {
             this.data.items = items;
@@ -53,7 +57,7 @@
         /**
          * Регистрация события "удаление элемента"
          *
-         * @param item - индекс удаляемого элемента
+         * @param {Object} item - удаляемый элемент
          * @private
          */
         _onRemoveItem(item) {
@@ -64,7 +68,7 @@
         /**
          * Регистрация события "выбор элемента"
          *
-         * @param item - выбранный элемент
+         * @param {Object} item - выбранный элемент
          * @private
          */
         _pickItem(item) {
@@ -77,7 +81,7 @@
         /**
          * Обработчик события "клик"
          *
-         * @param event - объект события
+         * @param {Object} event - объект события
          * @private
          */
         _onClick(event) {
@@ -95,5 +99,7 @@
         }
     }
 
+    // export
     window.Menu = Menu;
+
 })(window);
