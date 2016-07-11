@@ -21,7 +21,7 @@
         /**
          * Удаление пункта меню
          *
-         * @param {Object} removedItem - элемент для удаления
+         * @param {Object} removedItem - пункт меню для удаления
          */
         removeItem(removedItem) {
             this.data.items = this.data.items.filter((item, index) => {
@@ -55,7 +55,7 @@
         }
 
         /**
-         * Регистрация события "удаление элемента"
+         * Регистрация события "удаление пункта меню"
          *
          * @param {Object} item - удаляемый элемент
          * @private
@@ -66,9 +66,9 @@
         }
 
         /**
-         * Регистрация события "выбор элемента"
+         * Регистрация события "выбор пункта меню"
          *
-         * @param {Object} item - выбранный элемент
+         * @param {Object} item - выбранный пункт меню
          * @private
          */
         _pickItem(item) {
