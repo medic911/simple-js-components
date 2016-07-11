@@ -35,7 +35,12 @@
         menu.addItem(event.detail.anchor, event.detail.href);
     });
 
+    let xhrClient = new XhrClient();
+    xhrClient.create('GET', 'http://127.0.0.1:8080/server/data.json')
+             .send()
+             .onDone(function(response) {
+                 menu.updateItems(response.data);
+             });
+
     window.menu = menu;
-
-
 })(window);

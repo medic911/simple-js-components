@@ -12,6 +12,7 @@
         <div class="block b-form" ></div>
     </div>
 
+    <!--Templates-->
     <script type="text/x-tmpl" id="menu">
         <div class="b-menu-wrapper">
             <span class="b-menu__title">
@@ -31,18 +32,24 @@
     </script>
 
     <script type="text/x-tmpl" id="form">
-        <form id="add-form" >
+        <form id="add-form" method="POST" >
             <input type="text" name="anchor" required >
             <input type="url" name="href" required >
             <input type="submit" name="Добавить"  >
         </form>
     </script>
+    <!--End templates-->
 
+    <!--Libs-->
     <script src="libs/template.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="libs/xhr-client.js" type="text/javascript" charset="utf-8" ></script>
+
+    <!--Components-->
     <script src="components/component.js" type="text/javascript" charset="utf-8" ></script>
     <script src="components/menu/menu.js" type="text/javascript" charset="utf-8" ></script>
     <script src="components/form/form.js" type="text/javascript" charset="utf-8" ></script>
 
+    <!--App-->
     <script src="components/app/app.js" type="text/javascript" charset="utf-8" ></script>
 </body>
 </html>

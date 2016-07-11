@@ -23,6 +23,11 @@
             this.render();
         }
 
+        updateItems(items) {
+            this.data.items = items;
+            this.render();
+        }
+
         _onRemoveItem(item) {
             let index = parseInt(item.parentNode.dataset.index, 10);
             this._trigger('item.remove', {index});
@@ -51,5 +56,4 @@
     }
 
     window.Menu = Menu;
-
 })(window);
