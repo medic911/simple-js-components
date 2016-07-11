@@ -15,6 +15,14 @@
             this.render();
         }
 
+        addItem(anchor, href) {
+            this.data.items.push({
+                anchor: anchor,
+                href: href
+            });
+            this.render();
+        }
+
         _onRemoveItem(item) {
             let index = parseInt(item.parentNode.dataset.index, 10);
             this._trigger('item.remove', {index});

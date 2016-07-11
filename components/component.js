@@ -5,7 +5,7 @@
 
         constructor(options) {
             this.el         = options.el;
-            this.data       = options.data;
+            this.data       = options.data || {};
             this._template  = document.querySelector(options.template).innerHTML;
 
             this.render();
