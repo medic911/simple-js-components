@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d007edf8-c777-4386-a09e-d9323eabc78c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/form/form.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/app/app.js" afterPath="$PROJECT_DIR$/components/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/component.js" afterPath="$PROJECT_DIR$/components/component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/form/form.js" afterPath="$PROJECT_DIR$/components/form/form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/menu/menu.js" afterPath="$PROJECT_DIR$/components/menu/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/template.js" afterPath="$PROJECT_DIR$/libs/template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/xhr-client.js" afterPath="$PROJECT_DIR$/libs/xhr-client.js" />
     </list>
     <ignored path="component.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32047477">
+            <state vertical-scroll-proportion="-8.0">
               <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -52,22 +55,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/menu/menu.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/form/form.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-              <folding />
+              <folding>
+                <marker date="1468232954613" expanded="true" signature="104:862" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,7 +72,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,6 +172,7 @@
         <option value="$PROJECT_DIR$/libs/xhr-client.js" />
         <option value="$PROJECT_DIR$/components/form/form.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -372,7 +370,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468230659947</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Code comments">
+      <created>1468233100482</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1468233100482</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -406,7 +410,8 @@
     <MESSAGE value="Menu component impl" />
     <MESSAGE value="Form component impl" />
     <MESSAGE value="XhrClient impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="XhrClient impl" />
+    <MESSAGE value="Code comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -433,7 +438,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
+          <folding>
+            <marker date="1468232954613" expanded="true" signature="104:862" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,7 +448,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding />
+          <folding>
+            <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -513,7 +522,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1468232954613" expanded="true" signature="104:862" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -521,7 +532,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -577,7 +590,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -625,7 +640,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
+          <folding>
+            <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -633,7 +650,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1468232954613" expanded="true" signature="104:862" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -697,7 +716,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
+          <folding>
+            <marker date="1468232954597" expanded="true" signature="103:2308" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -721,7 +742,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding />
+          <folding>
+            <marker date="1468232954613" expanded="true" signature="104:862" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -751,8 +774,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32047477">
+        <state vertical-scroll-proportion="-8.0">
           <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
