@@ -19,17 +19,6 @@
         }
 
         /**
-         * Элемент DOM по name
-         *
-         * @param {string} name - имя поля
-         *
-         * @returns {Object}
-         */
-        getField(name) {
-            return this.el.querySelector(`[name="${name}"]`);
-        }
-
-        /**
          * Регистрация события "submit формы"
          *
          * @param {Object} event
@@ -39,8 +28,8 @@
             event.preventDefault();
 
             this.trigger('form.submit', {
-                anchor: this.getField('anchor').value,
-                href: this.getField('href').value
+                anchor: this.findByAttr('name', 'anchor').value,
+                href: this.findByAttr('name', 'href').value
             });
         }
     }

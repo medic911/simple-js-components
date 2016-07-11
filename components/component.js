@@ -31,6 +31,18 @@
         }
 
         /**
+         * Поиск объекта в DOM
+         *
+         * @param {string} attrName     - имя атрибута
+         * @param {string} attrValue    - значение атрибута
+         *
+         * @returns {Object}
+         */
+        findByAttr(attrName, attrValue) {
+            return this.el.querySelector(`[${attrName}="${attrValue}"]`);
+        }
+
+        /**
          * Добавление обработчика для события
          *
          * @param {string} type         - название события
