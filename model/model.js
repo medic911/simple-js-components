@@ -84,12 +84,12 @@
         }
 
         /**
-         * Обновление данных модели
+         * Обновление модели
          *
          * @param {Object} data         - данные
          * @param {Function} callback   - callback
          */
-        updateData(data, callback) {
+        update(data, callback) {
             this.data = data;
             this.save(callback);
         }
