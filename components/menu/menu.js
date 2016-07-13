@@ -37,6 +37,10 @@
          * @param {string} href      - адрес
          */
         addItem(anchor, href) {
+            if(!this.data.items) {
+                this.data.items = [];
+            }
+
             this.data.items.push({
                 anchor: anchor,
                 href: href
