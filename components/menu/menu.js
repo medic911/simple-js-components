@@ -56,23 +56,6 @@
         }
 
         /**
-        * Загрузка с сервера
-        * 
-        * @param {string} url - url
-        */
-        loadRemoteItems(url) {
-            let xhrClient = new XhrClient();
-
-            let that = this;
-            xhrClient.get(url)
-                     .onDone(function(response) {
-                         if(response.status == 200) {
-                             that.updateItems(response.data);
-                         }
-                     });
-        }
-
-        /**
          * Регистрация события "удаление пункта меню"
          *
          * @param {Object} item - удаляемый элемент

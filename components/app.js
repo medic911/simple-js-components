@@ -40,9 +40,6 @@
         menu.addItem(event.detail.anchor, event.detail.href);
     });
 
-    // XMLHttpRequest
-    menu.loadRemoteItems('http://127.0.0.1:8080/server/data.json');
-
     // export
     window.menu = menu;
     window.form = form;

@@ -11,7 +11,7 @@
          * POST запрос
          *
          * @param {string} url       - url
-         * @param {Object} params    - параметры (json)
+         * @param {Object} params    - параметры
          *
          * @returns {XhrClient}
          */
@@ -23,7 +23,7 @@
          * GET запрос
          *
          * @param {string} url       - url
-         * @param {Object} params    - параметры (json)
+         * @param {Object} params    - параметры
          *
          * @returns {XhrClient}
          */
@@ -35,6 +35,28 @@
         }
 
         /**
+         * DELETE запрос
+         *
+         * @param url {string}      - url
+         * @param params {Object}   - параметры
+         * @returns {XhrClient}
+         */
+        delete(url, params = {}) {
+            return this._sendRequest('DELETE', url, JSON.stringify(params));
+        }
+
+        /**
+         * PUT запрос
+         *
+         * @param url {string}      - url
+         * @param params {string}   - параметры
+         * @returns {XhrClient}
+         */
+        put(url, params = {}) {
+            return this._sendRequest('PUT', url, JSON.stringify(params));
+        }
+
+        /**
          * Обработчик ответа
          *
          * @param {Function} callback       - функция-обработчик
@@ -42,7 +64,7 @@
          *
          * @returns {XhrClient}
          */
-        onDone(callback, responseType = 'json') {
+        done(callback, responseType = 'json') {
             let that = this;
             this.xhr.onreadystatechange = function() {
                 if (that.xhr.readyState == 4) {
@@ -64,7 +86,7 @@
         /**
          * Создание XMLHttpRequest и отправка запроса
          *
-         * @param {string} method    - метод (GET|POST)
+         * @param {string} method    - метод (GET|POST|DELETE|PUT)
          * @param {string} url       - url
          * @param {string} body      - тело запроса
          *
