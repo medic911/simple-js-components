@@ -26,7 +26,7 @@
 
     // Загрузка модели меню
     menuModel.fetch(function(data) {
-        menu.updateData(data);
+        menuView.updateData(data);
     });
 
     // Удаление пункта меню
@@ -34,20 +34,20 @@
         menuView.removeItem(event.detail);
 
         // обновление модели
-        menuModel.data = menu.data;
+        menuModel.data = menuView.data;
         menuModel.save();
     });
 
     // Добавление пункта меню
     menuView.on('item.add', function() {
         // обновление модели
-        menuModel.data = menu.data;
+        menuModel.data = menuView.data;
         menuModel.save();
     });
 
     // Submit формы
     formView.on('form.submit', function(event) {
-        menu.addItem(event.detail.anchor, event.detail.href);
+        menuView.addItem(event.detail.anchor, event.detail.href);
     });
 
     // export
