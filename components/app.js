@@ -34,15 +34,13 @@
         menuView.removeItem(event.detail);
 
         // обновление модели
-        menuModel.data = menuView.data;
-        menuModel.save();
+        menuModel.updateData(menuView.data);
     });
 
     // Добавление пункта меню
     menuView.on('item.add', function() {
         // обновление модели
-        menuModel.data = menuView.data;
-        menuModel.save();
+        menuModel.updateData(menuView.data);
     });
 
     // Submit формы

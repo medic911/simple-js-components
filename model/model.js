@@ -84,6 +84,17 @@
         }
 
         /**
+         * Обновление данных модели
+         *
+         * @param {Object} data         - данные
+         * @param {Function} callback   - callback
+         */
+        updateData(data, callback) {
+            this.data = data;
+            this.save(callback);
+        }
+
+        /**
          * URL генератор для ресурса
          *
          * @returns {string} - url ресурса
