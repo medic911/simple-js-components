@@ -27,7 +27,7 @@
          * Рендер компонента в DOM
          */
         render() {
-            this.el.innerHTML = TemplateEngine.renderView(this._template, this.data);
+           this.el.innerHTML = TemplateEngine.renderView(this._template, this.data);
         }
 
         /**
@@ -49,16 +49,6 @@
          * @param {Function} callback   - функция-обработчик
          */
         on(type, callback) {
-            this.el.addEventListener(type, callback);
-        }
-
-        /**
-         * Инициализация события
-         *
-         * @param {string} type         - название события
-         * @param {Function} callback   - функция-обработчик
-         */
-        initEvent(type, callback) {
             this.el.addEventListener(type, callback.bind(this));
         }
 

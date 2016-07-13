@@ -3,53 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Simple application</title>
-    <link href="main.css" rel="stylesheet" charset="utf-8" >
-    <link href="components/menu/menu.css" rel="stylesheet" charset="utf-8" >
-    <link href="components/form/form.css" rel="stylesheet" charset="utf-8" >
+
+    <link rel="stylesheet" href="main.css" charset="utf-8" >
+    <link rel="stylesheet" href="components/menu/menu.css" charset="utf-8" >
+    <link rel="stylesheet" href="components/form/form.css" charset="utf-8" >
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
 <body>
-    <div class="container" >
-        <div class="block b-menu" ></div>
-        <div class="block b-form" ></div>
+    <div class="container b-container" >
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <h2 class="page-header"><img src="https://learn.javascript.ru/img/sitetoolbar__logo_small.svg">Javascript.ru</h2>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="block b-menu col-lg-6 col-sm-6 col-xs-6" ></div>
+            <div class="block b-form col-lg-6 col-sm-6 col-xs-6" ></div>
+        </div>
     </div>
 
     <!--Templates-->
     <script type="text/x-tmpl" id="menu">
-        <div class="b-menu-wrapper">
-            <span class="b-menu__title">
-                <%this.title%>
-            </span>
-            <ul class="b-menu-list">
-                <%for (let i=0; i<this.items.length; i++) {%>
-                    <li class="b-menu-list-item" data-index="<%i%>">
-                        <a class="b-menu-list-item__link" href="<%this.items[i].href%>" data-action="pick">
-                            <%this.items[i].anchor%>
-                        </a>
-                        <i class="close" data-action="remove">X</i>
-                    </li>
-                <%}%>
-            </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading m-title"><%this.title%></div>
+            <div class="panel-body">
+                <ul class="b-menu-list list-group">
+                    <%if (this.items !== undefined) {%>
+                        <%for (let i=0; i<this.items.length; i++) {%>
+                            <li class="list-group-item b-menu-list-item" data-index="<%i%>">
+                                <img src="<%this.items[i].href%>/favicon.ico" style="width: 20px; height: 20px;" >
+                                <a class="b-menu-list-item__link" href="<%this.items[i].href%>" data-action="pick">
+                                    <%this.items[i].anchor%>
+                                </a>
+                                <i class="close glyphicon glyphicon-remove" data-action="remove"></i>
+                            </li>
+                        <%}%>
+                    <%}%>
+                </ul>
+            </div>
         </div>
     </script>
 
     <script type="text/x-tmpl" id="form">
-        <form id="add-form" method="POST" >
-            <div class="b-form-field" >
-                <label class="b-form-field__label" >Название</label><br>
-                <input type="text" name="anchor" required >
+        <div class="panel panel-default">
+            <div class="panel-heading m-title">Компонент форма</div>
+            <div class="panel-body">
+                <form id="add-form" method="POST" >
+                  <fieldset class="form-group">
+                    <label for="exampleInputEmail1">Название</label>
+                    <input required type="text" name="anchor" class="form-control" id="exampleInputEmail1" placeholder="Название">
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="exampleInputPassword1">URL</label>
+                    <input required type="url" name="href" class="form-control" id="exampleInputPassword1" placeholder="Url">
+                  </fieldset>
+                  <button type="submit" class="btn btn-primary">Добавить</button>
+                </form>
             </div>
-            <div class="b-form-field" >
-                <label class="b-form-field__label" >Ссылка</label><br>
-                <input type="url" name="href" required >
-            </div>
-            <input type="submit" value="Добавить"  >
-        </form>
+        </div>
     </script>
     <!--End templates-->
 
     <!--Libs-->
     <script src="libs/template.js" type="text/javascript" charset="utf-8" ></script>
     <script src="libs/xhr-client.js" type="text/javascript" charset="utf-8" ></script>
+
+    <!--Model-->
+    <script src="model/model.js" type="text/javascript" charset="utf-8" ></script>
 
     <!--Components-->
     <script src="components/component.js" type="text/javascript" charset="utf-8" ></script>

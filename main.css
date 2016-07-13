@@ -1,13 +1,11 @@
-.container {
-    width: 600px;
-    margin: 100px auto;
-    background: #F5F2F0;
-    border: #9B999B 1px solid;
-    border-radius: 3px;
+.b-container {
+    margin-top: 50px;
 }
 
-.block {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0px;
+.b-clear {
+    clear: both;
+}
+
+.m-title {
+    font-weight: bold;
 }

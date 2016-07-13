@@ -1,25 +1,13 @@
-.b-menu__title {
-    font-size: 18px;
-}
-
-.b-menu-list {
-    list-style: none;
-    margin: 10px 0px;
-    padding: 0px;
-}
-
 .b-menu-list-item {
-    pading-top: 8px;
-    width: 50%;
+    cursor: pointer;
+}
+
+.b-menu-list-item:hover {
+    background: #F0F0F0;
 }
 
 .b-menu-list-item__link,  .b-menu-list-item__link:hover {
     text-decoration: none;
+    padding-left: 8px;
     color: #000;
-}
-
-.b-menu-list-item .close {
-    float: right;
-    font-weight: bold;
-    cursor: pointer;
 }

@@ -15,7 +15,11 @@
          */
         constructor(options) {
             super(options);
-            this.initEvent('submit', this._onSubmit);
+
+            this.anchorField    = this.findByAttr('name', 'anchor');
+            this.hrefField      = this.findByAttr('name', 'href');
+
+            this.on('submit', this._onSubmit);
         }
 
         /**
@@ -28,9 +32,21 @@
             event.preventDefault();
 
             this.trigger('form.submit', {
-                anchor: this.findByAttr('name', 'anchor').value,
-                href: this.findByAttr('name', 'href').value
+                anchor: this.anchorField.value,
+                href: this.hrefField.value
             });
+
+            this._clearFields();
+        }
+
+        /**
+         * Очистка полей формы
+         *
+         * @private
+         */
+        _clearFields() {
+            this.anchorField.value = '';
+            this.hrefField.value = '';
         }
     }
 

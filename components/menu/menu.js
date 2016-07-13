@@ -3,7 +3,6 @@
 
     // import
     let Component = window.Component;
-    let XhrClient = window.XhrClient;
 
     /**
      * @class Menu
@@ -16,7 +15,7 @@
          */
         constructor(options) {
             super(options);
-            this.initEvent('click', this._onClick);
+            this.on('click', this._onClick);
         }
 
         /**
@@ -43,6 +42,8 @@
                 href: href
             });
             this.render();
+
+            this.trigger('item.add', []);
         }
 
         /**
@@ -50,8 +51,8 @@
          *
          * @param {Object} items - список элементов
          */
-        updateItems(items) {
-            this.data.items = items;
+        updateData(data) {
+            this.data = data;
             this.render();
         }
 

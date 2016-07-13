@@ -4,39 +4,49 @@
     // import
     let Menu        = window.Menu;
     let Form        = window.Form;
-
-    // Компонент меню
-    let menu = new Menu({
-        el: document.querySelector('.b-menu'),
-        template: '#menu',
-        data: {
-            title: 'SIMPLE APPLICATION',
-            items: [
-                {
-                    anchor: 'mail.ru',
-                    href: 'http://mail.ru'
-                },
-                {
-                    anchor: 'yandex.ru',
-                    href: 'http://yandex.ru'
-                }
-            ]
-        }
-    });
+    let Model       = window.Model;
 
     // Компонент форма
-    let form = new Form({
+    let formView = new Form({
         el: document.querySelector('.b-form'),
         template: '#form'
     });
 
-    // Удаление элемента из меню
-    menu.on('item.remove', function(event) {
-       menu.removeItem(event.detail);
+    // Компонент меню
+    let menuView = new Menu({
+        el: document.querySelector('.b-menu'),
+        template: '#menu',
+    });
+
+    // Модель меню
+    let menuModel = new Model({
+        resourceName: 'menu',
+        id: '-KMYjrV7E488G39sDrlj',
+    });
+
+    // Загрузка модели меню
+    menuModel.fetch(function(data) {
+        menu.updateData(data);
+    });
+
+    // Удаление пункта меню
+    menuView.on('item.remove', function(event) {
+        menuView.removeItem(event.detail);
+
+        // обновление модели
+        menuModel.data = menu.data;
+        menuModel.save();
+    });
+
+    // Добавление пункта меню
+    menuView.on('item.add', function() {
+        // обновление модели
+        menuModel.data = menu.data;
+        menuModel.save();
     });
 
     // Submit формы
-    form.on('form.submit', function(event) {
+    formView.on('form.submit', function(event) {
         menu.addItem(event.detail.anchor, event.detail.href);
     });
 
