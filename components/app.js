@@ -24,7 +24,7 @@
         id: '-KMYjrV7E488G39sDrlj',
     });
 
-    // Загрузка модели меню
+    // Загрузка данных в модель меню
     menuModel.fetch(function(data) {
         menuView.updateData(data);
     });
