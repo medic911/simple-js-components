@@ -11,3 +11,7 @@
     padding-left: 8px;
     color: #000;
 }
+
+.b-menu-list-item .close {
+    padding-right: 10px;
+}

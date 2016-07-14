@@ -18,29 +18,31 @@
          * @param {Object} options - входные данные
          */
         constructor(options) {
-            this.resourceName   = options['resourceName'];
+            this.resourceName   = options.resourceName;
             this.data           = options.data || {};
             this.id             = options.id || null;
-            this.dataFormat     = options['dataFormat'] || 'json';
+            this.dataFormat     = options.dataFormat || 'json';
 
             // XMLHttpRequest client
             this.xhrClient      = new XhrClient();
         }
 
         /**
-         * Загрузка ресурса по ID
+         * Загрузка экземпляра ресурса
          *
          * @param {Function} callback
          */
-        fetch(callback) {
-            let that = this;
+        fetchOne(callback) {
+            this._fetch(this._buildUrl(Model._resourceTypes().TYPE_ENTITY), callback);
+        }
 
-            this.xhrClient.get(this._buildUrl()).done(function(response) {
-                if(response.status == 200) {
-                    that.data = response.data;
-                    callback.apply(that, [response.data]);
-                }
-            }, this.dataFormat);
+        /**
+         * Загрузка коллекции
+         *
+         * @param {Function} callback
+         */
+        fetchAll(callback) {
+            this._fetch(this._buildUrl(Model._resourceTypes().TYPE_COLLECTION), callback);
         }
 
         /**
@@ -53,14 +55,14 @@
 
             // PUT для существующего ресурса
             if(this.id) {
-                this.xhrClient.put(this._buildUrl(), this.data).done(function() {
+                this.xhrClient.put(this._buildUrl(Model._resourceTypes().TYPE_ENTITY), this.data).done(function() {
                     if(callback !== undefined) {
                         callback.bind(that);
                     }
                 }, this.dataFormat);
             // POST для нового ресурса
             } else {
-                this.xhrClient.post(this._buildUrl(), this.data).done(function() {
+                this.xhrClient.post(this._buildUrl(Model._resourceTypes().TYPE_COLLECTION), this.data).done(function() {
                     if(callback !== undefined) {
                         callback.bind(that);
                     }
@@ -76,7 +78,7 @@
         delete(callback) {
             let that = this;
 
-            this.xhrClient.delete(this._buildUrl()).done(function(response) {
+            this.xhrClient.delete(this._buildUrl(Model._resourceTypes().TYPE_ENTITY)).done(function() {
                 if(callback !== undefined) {
                     callback.bind(that);
                 }
@@ -95,22 +97,46 @@
         }
 
         /**
+         * Fetch ресурса
+         *
+         * @param {string} url
+         * @param {Function} callback
+         * @private
+         */
+        _fetch(url, callback) {
+            let that = this;
+            this.xhrClient.get(url, this.data).done(function(response) {
+                if(response.status == 200) {
+                    that.data = response.data;
+                    callback.apply(that, [response.data]);
+                }
+            }, this.dataFormat);
+        }
+
+        /**
          * URL генератор для ресурса
          *
          * @returns {string} - url ресурса
          *
          * @private
          */
-        _buildUrl() {
+        _buildUrl(type) {
             let url = `${BASE_URL}${this.resourceName}`;
 
-            if(this.id) {
+            if(type == Model._resourceTypes().TYPE_ENTITY) {
                 url += `/${this.id}.${this.dataFormat}`;
             } else {
                 url += `.${this.dataFormat}`;
             }
 
             return url;
+        }
+
+        static _resourceTypes() {
+            return {
+                TYPE_ENTITY: 'TYPE_ENTITY',
+                TYPE_COLLECTION: 'TYPE_COLLECTION'
+            }
         }
 
     }

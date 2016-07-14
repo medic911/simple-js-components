@@ -51,6 +51,24 @@
         }
 
         /**
+         * Обновление пункта меню
+         *
+         * @param {string} anchor   - название
+         * @param {string} href     - ссылка
+         * @param {string} index    - инедекс
+         */
+        updateItem(anchor, href, index) {
+            this.data.items[index] = {
+                anchor: anchor,
+                href: href
+            };
+
+            this.render();
+
+            this.trigger('items.update', []);
+        }
+
+        /**
          * Обновление пунктов меню
          *
          * @param {Object} items - список элементов
@@ -80,7 +98,22 @@
         _pickItem(item) {
             this.trigger('item.pick', {
                 href: item.getAttribute('href'),
-                anchor: item.textContent
+                anchor: item.textContent,
+                index: item.parentNode.dataset.index
+            });
+        }
+
+        /**
+         * Регистрация события "редактирование пункта меню"
+         *
+         * @param {Object} item - выбранный пункт меню
+         * @private
+         */
+        _editItem(item) {
+            this.trigger('item.edit', {
+                href: item.getAttribute('href'),
+                anchor: item.textContent,
+                index: item.parentNode.dataset.index
             });
         }
 
@@ -99,7 +132,10 @@
                     this._onRemoveItem(item);
                     break;
                 case 'pick':
-                    this._pickItem(item);
+                    this._pickItem(item.querySelector(`a`));
+                    break;
+                case 'edit':
+                    this._editItem(item.parentNode.querySelector(`a`));
                     break;
             }
         }

@@ -20,7 +20,10 @@
         </div>
         <div class="row" >
             <div class="block b-menu col-lg-6 col-sm-6 col-xs-6" ></div>
-            <div class="block b-form col-lg-6 col-sm-6 col-xs-6" ></div>
+            <div class="col-lg-6 col-sm-6 col-xs-6" >
+                <div class="block b-form " ></div>
+                <div class="block b-logger " ></div>
+            </div>
         </div>
     </div>
 
@@ -32,12 +35,13 @@
                 <ul class="b-menu-list list-group">
                     <%if (this.items !== undefined) {%>
                         <%for (let i=0; i<this.items.length; i++) {%>
-                            <li class="list-group-item b-menu-list-item" data-index="<%i%>">
+                            <li class="list-group-item b-menu-list-item" data-index="<%i%>" data-action="pick">
                                 <img src="<%this.items[i].href%>/favicon.ico" style="width: 20px; height: 20px;" >
-                                <a class="b-menu-list-item__link" href="<%this.items[i].href%>" data-action="pick">
+                                <a class="b-menu-list-item__link" href="<%this.items[i].href%>">
                                     <%this.items[i].anchor%>
                                 </a>
                                 <i class="close glyphicon glyphicon-remove" data-action="remove"></i>
+                                <i class="close glyphicon glyphicon-edit" data-action="edit"></i>
                             </li>
                         <%}%>
                     <%}%>
@@ -50,16 +54,19 @@
         <div class="panel panel-default">
             <div class="panel-heading m-title">Компонент форма</div>
             <div class="panel-body">
-                <form id="add-form" method="POST" >
+                <form data-item-index="<%this.index%>" data-mode="<%this.mode%>" id="add-form" method="POST" >
                   <fieldset class="form-group">
                     <label for="exampleInputEmail1">Название</label>
-                    <input required type="text" name="anchor" class="form-control" id="exampleInputEmail1" placeholder="Название">
+                    <input value="<%this.anchor%>" required type="text" name="anchor" class="form-control" id="exampleInputEmail1" placeholder="Название">
                   </fieldset>
                   <fieldset class="form-group">
                     <label for="exampleInputPassword1">URL</label>
-                    <input required type="url" name="href" class="form-control" id="exampleInputPassword1" placeholder="Url">
+                    <input value="<%this.href%>" required type="url" name="href" class="form-control" id="exampleInputPassword1" placeholder="Url">
                   </fieldset>
-                  <button type="submit" class="btn btn-primary">Добавить</button>
+                  <button data-action="submit" type="submit" class="btn btn-primary"><%this.title%></button>
+                  <% if(this.mode == 'edit') {%>
+                    <a class="b-cancel-edit" data-action="exit-edit" >Отменить</a>
+                  <%}%>
                 </form>
             </div>
         </div>

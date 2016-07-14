@@ -39,6 +39,7 @@
          *
          * @param url {string}      - url
          * @param params {Object}   - параметры
+         *
          * @returns {XhrClient}
          */
         delete(url, params = {}) {
@@ -49,7 +50,8 @@
          * PUT запрос
          *
          * @param url {string}      - url
-         * @param params {string}   - параметры
+         * @param params {Object}   - параметры
+         *
          * @returns {XhrClient}
          */
         put(url, params = {}) {
