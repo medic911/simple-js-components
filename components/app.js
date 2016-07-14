@@ -47,16 +47,14 @@
         menuModel.update(menuView.data);
     });
 
-    // Добавление пункта меню
+    // Обновление пункта меню
     menuView.on('items.update', function() {
         // обновление модели
         menuModel.update(menuView.data);
     });
 
     // Выбор пункта меню
-    menuView.on('item.pick', function(event) {
-
-    });
+    menuView.on('item.pick', function(event) {});
 
     // Редиктирование пункта меню
     menuView.on('item.edit', function(event) {
@@ -76,7 +74,6 @@
         } else {
             menuView.updateItem(event.detail.anchor, event.detail.href, event.detail.index);
         }
-
     });
 
     // export
